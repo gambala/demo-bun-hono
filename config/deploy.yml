@@ -10,6 +10,7 @@ registry:
   password:
     - KAMAL_REGISTRY_PASSWORD
 healthcheck:
-  cmd: ls -l > /dev/null
+  path: /
+  # cmd: ls -l > /dev/null
 builder:
   multiarch: false
