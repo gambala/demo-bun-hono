@@ -1,5 +1,6 @@
 import type { FC } from "hono/jsx";
 import { Hono } from "hono";
+import { logger } from 'hono/logger'
 
 const Layout: FC = (props) => {
   return (
@@ -23,6 +24,8 @@ const Page: FC<{ messages: string[] }> = (props: { messages: string[] }) => {
 };
 
 const app = new Hono();
+
+app.use(logger())
 
 app.get("/", (c) => c.text("Hello, Hono with Bun!"));
 app.get("/hello", (c) => c.json({ message: "Hello, World!" }));
