@@ -1,17 +1,12 @@
 {
-  "name": "bun-hono-demo",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "name": "my-app",
+  "scripts": {
+    "dev": "bun run --hot src/index.tsx"
   },
   "dependencies": {
     "hono": "^4.5.3"
   },
-  "scripts": {
-    "start": "bun run index.tsx"
+  "devDependencies": {
+    "@types/bun": "latest"
   }
 }

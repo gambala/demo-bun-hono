@@ -15,4 +15,4 @@ COPY . /app
 EXPOSE 3000
 
 # Start the app
-CMD ["bun", "run", "index.ts"]
+CMD ["bun", "run", "src/index.tsx"]
