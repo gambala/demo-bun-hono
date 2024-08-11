@@ -1,9 +1,9 @@
-service: bun-hono-demo
-image: gambala/bun-hono-demo
+service: demo-bun-hono
+image: gambala/demo-bun-hono
 servers:
   - <%= ENV["MAIN_SERVER_IP"] %>
 labels:
-  traefik.http.routers.bun-hono-demo-web.rule: Host(`bun-hono-demo.gambala.pro`)
+  traefik.http.routers.demo-bun-hono-web.rule: Host(`hono.gambala.pro`)
 registry:
   server: ghcr.io
   username: gambala

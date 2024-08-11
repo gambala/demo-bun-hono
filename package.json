@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "demo-bun-hono",
   "scripts": {
     "dev": "bun run --hot src/index.tsx"
   },
