@@ -9,7 +9,7 @@ RUN apk add --no-cache curl
 
 # Copy package.json and install dependencies
 COPY package.json bun.lockb /app/
-RUN bun install
+RUN bun install --production
 
 # Copy the rest of the application code
 COPY . /app
