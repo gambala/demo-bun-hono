@@ -4,9 +4,6 @@ FROM oven/bun:alpine
 # Set the working directory
 WORKDIR /app
 
-# Install curl for Kamal health checks
-RUN apk add --no-cache curl
-
 # Copy package.json and install dependencies
 COPY package.json bun.lockb /app/
 RUN bun install --production
