@@ -1,18 +1,11 @@
-# Use the official Bun image
 FROM oven/bun:alpine
+  WORKDIR /app
 
-# Set the working directory
-WORKDIR /app
+  COPY package.json bun.lockb /app/
+  RUN bun install --production
 
-# Copy package.json and install dependencies
-COPY package.json bun.lockb /app/
-RUN bun install --production
+  COPY . /app
 
-# Copy the rest of the application code
-COPY . /app
+  EXPOSE 3000
 
-# Expose the port the app runs on
-EXPOSE 3000
-
-# Start the app
-CMD ["bun", "run", "src/index.tsx"]
+  CMD ["bun", "run", "src/index.tsx"]
