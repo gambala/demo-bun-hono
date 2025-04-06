@@ -1,2 +1,0 @@
-# Show bun.lockb diffs properly
-*.lockb binary diff=lockb
