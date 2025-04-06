@@ -1,4 +1,4 @@
-<% require "dotenv"; Dotenv.load(".env") %>
+# <% require "dotenv"; Dotenv.load(".env") %>
 
 service: demo-bun-hono
 image: gambala/demo-bun-hono
