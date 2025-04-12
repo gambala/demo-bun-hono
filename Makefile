@@ -1,3 +1,8 @@
+dev:
+	bun dev
+
+
+
 fu: frontend-update
 frontend-update:
 	bunx --bun npm-check-updates -i
