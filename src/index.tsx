@@ -9,13 +9,6 @@ const Layout: FC = (props) => (
   </html>
 );
 
-const Page: FC<{ messages: string[] }> = (props: { messages: string[] }) => (
-  <Layout>
-    <h1>Hello Hono!</h1>
-    <ul>{props.messages.map((message) => <li>{message}!!!</li>)}</ul>
-  </Layout>
-);
-
 const ItemsPage: FC<{ items: Item[], count: number, avgPrice: number }> = (props) => (
   <Layout>
     <h1>Items: {props.count}</h1>
@@ -30,6 +23,13 @@ const ItemsPage: FC<{ items: Item[], count: number, avgPrice: number }> = (props
   </Layout>
 );
 
+const Page: FC<{ messages: string[] }> = (props: { messages: string[] }) => (
+  <Layout>
+    <h1>Hello Hono!</h1>
+    <ul>{props.messages.map((message) => <li>{message}!!!</li>)}</ul>
+  </Layout>
+);
+
 const app = new Hono();
 
 app.use(logger())
@@ -40,10 +40,13 @@ app.get("/jsx", (c) => {
   const messages = ["Good Morning", "Good Evening", "Good Night"];
   return c.html(<Page messages={messages} />);
 });
-app.get("/items", (c) => {
-  const items = getRandomItems();
-  const count = getItemsCount();
-  const avgPrice = getAveragePrice();
+
+app.get("/items", async (c) => {
+  const [items, count, avgPrice] = await Promise.all([
+    getRandomItems(),
+    getItemsCount(),
+    getAveragePrice()
+  ]);
   return c.html(<ItemsPage items={items} count={count} avgPrice={avgPrice} />);
 });
 
