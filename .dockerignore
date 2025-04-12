@@ -13,3 +13,6 @@ Dockerfile*
 
 # Node modules
 node_modules/
+
+# DB
+db.sqlite3
