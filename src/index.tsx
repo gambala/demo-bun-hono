@@ -2,26 +2,18 @@ import type { FC } from "hono/jsx";
 import { Hono } from "hono";
 import { logger } from 'hono/logger'
 
-const Layout: FC = (props) => {
-  return (
-    <html>
-      <body>{props.children}</body>
-    </html>
-  );
-};
+const Layout: FC = (props) => (
+  <html>
+    <body>{props.children}</body>
+  </html>
+);
 
-const Page: FC<{ messages: string[] }> = (props: { messages: string[] }) => {
-  return (
-    <Layout>
-      <h1>Hello Hono!</h1>
-      <ul>
-        {props.messages.map((message) => {
-          return <li>{message}!!</li>;
-        })}
-      </ul>
-    </Layout>
-  );
-};
+const Page: FC<{ messages: string[] }> = (props: { messages: string[] }) => (
+  <Layout>
+    <h1>Hello Hono!</h1>
+    <ul>{props.messages.map((message) => <li>{message}!!!</li>)}</ul>
+  </Layout>
+);
 
 const app = new Hono();
 
